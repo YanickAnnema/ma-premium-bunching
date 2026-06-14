@@ -1,0 +1,24 @@
+# Proprietary data (LSEG / Refinitiv and ORBIS licenses forbid redistribution)
+*.xlsx
+*.xls
+LSEG*
+Lseg*
+ORBIS*
+Orbis*
+orbis*
+
+# All working data, checkpoints, and debug dumps under data/ (keep the folder)
+data/*
+!data/.gitkeep
+
+# Generated outputs (keep the folder)
+outputs/*
+!outputs/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+.env

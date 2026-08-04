@@ -1,11 +1,15 @@
-# Proprietary data (LSEG / Refinitiv and ORBIS licenses forbid redistribution)
+# Proprietary data (LSEG / Refinitiv and ORBIS licenses forbid redistribution).
+# Scope these to data extensions. A bare "LSEG*" also matches source files such
+# as src/lseg_prices.py on a case-insensitive filesystem, which silently kept the
+# price-join code out of the published repo. See docs/research_log.md.
 *.xlsx
 *.xls
-LSEG*
-Lseg*
-ORBIS*
-Orbis*
-orbis*
+LSEG*.csv
+LSEG*.json
+LSEG*.parquet
+ORBIS*.csv
+ORBIS*.json
+ORBIS*.parquet
 
 # All working data, checkpoints, and debug dumps under data/ (keep the folder)
 data/*

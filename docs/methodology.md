@@ -1,4 +1,29 @@
-# Project plan: Round-number bunching in takeover premia
+# Pre-registration: Round-number bunching in takeover premia
+
+> **This is the original research plan, written before any data was collected, and
+> kept here unedited as a pre-registration. It is not a description of what was
+> delivered.** The study that was actually run is smaller than this plan in every
+> dimension, and the deviations are listed immediately below. Read `docs/paper.md`
+> for the delivered work and `docs/research_log.md` for how it got there.
+>
+> **Deviations from this plan, in full:**
+>
+> | Planned | Delivered | Why |
+> |---|---|---|
+> | 8,000 to 15,000 deals | 316 | The LSEG deal screen quota-locked at a few hundred deals, forcing a pivot to a hand-built SEC EDGAR sample |
+> | US, Canada, Europe | US only | EDGAR covers US filers only |
+> | Completed and withdrawn | Completed only | The Item 3.01 delisting 8-K, which is what makes the target identifiable, only exists for deals that closed |
+> | `P0` = close 1 day before announcement (primary) | Close about 22 trading days before | A one-day price is contaminated by pre-bid run-up and leakage; changed after inspecting the pilot, so this is a post-hoc choice and is flagged as such in the paper |
+> | 4-week VWAP, premium-to-consensus-target as robustness | Not run | Requires vendor pulls that were not completed |
+> | Stage 2, outcome RDD at the focal threshold | Not run | Needs withdrawn deals |
+> | Stage 3, who-bunches probit | Not run | Premium roundness does not exist in the data, so the outcome would be noise. The version worth running uses offer-price roundness as the outcome instead |
+> | Stage 4, wealth-transfer magnitude | Not run | Excess mass is zero, so the magnitude is zero. Retired |
+>
+> The plan also names its own kill condition in section 6: if premium roundness
+> is only mechanical inheritance from round prices, "the headline is a null and
+> the paper becomes a measurement note." The delivered paper reports a null. It
+> also shows the mechanical explanation itself is wrong, which is the part the
+> plan did not anticipate.
 
 Working title: "Focal Points in Takeover Pricing: Bunching in Acquisition Premia and What It Costs Targets"
 Candidate repo name: `ma-premium-bunching`
@@ -106,8 +131,6 @@ Combine excess mass with the average premium gap between focal points to estimat
 - Python, minimal deps: numpy, pandas, scipy, statsmodels. Bunching estimator implemented from scratch (Chetty polynomial), local-linear RDD, market-model CARs.
 - Synthetic demo dataset shipped so the code runs without LSEG. `.gitignore` blocks `*.xlsx`, `LSEG*`, and derived CSVs, since LSEG and ORBIS forbid redistribution.
 - Writing: no em-dashes or en-dashes, humanizer conventions, honest-result framing.
-- Profile README row to add on publish (newest at top of the "Where to start" table):
-  `| [ma-premium-bunching](https://github.com/YanickAnnema/ma-premium-bunching) | Do takeover premia bunch at round numbers (20, 25, 30, 50 percent), and what does a round premium cost the target? A formal bunching estimate on the premium distribution plus a regression-discontinuity test of deal outcomes at the focal threshold. |`
 
 ## 8. Key references
 
